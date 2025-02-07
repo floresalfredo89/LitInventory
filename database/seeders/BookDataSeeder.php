@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Author;
+use App\Models\Book;
+use App\Models\UserBook;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
@@ -13,6 +16,7 @@ class BookDataSeeder extends Seeder
      */
     public function run(): void
     {
+
         // Languages seeds
         DB::table('book_languages')->insert([
             'name' => 'español'
@@ -112,6 +116,33 @@ class BookDataSeeder extends Seeder
             'name' => 'Thriller',
         ]);
 
+        DB::table('genres')->insert([
+            'name' => 'Fantasía',
+        ]);
+
+        DB::table('genres')->insert([
+            'name' => 'Romance',
+        ]);
+
+        DB::table('genres')->insert([
+            'name' => 'Historia',
+        ]);
+
+        DB::table('genres')->insert([
+            'name' => 'Literatura infantil',
+        ]);
+        DB::table('genres')->insert([
+            'name' => 'Literatura juvenil',
+        ]);
+
+        DB::table('genres')->insert([
+            'name' => 'Poesía',
+        ]);
+
+        DB::table('genres')->insert([
+            'name' => 'Drama',
+        ]);
+
         // Author-Book relationship
         DB::table('author_book')->insert([
             'author_id' => 1,
@@ -141,5 +172,17 @@ class BookDataSeeder extends Seeder
             'book_id' => 3,
             'genre_id' => 3
         ]);
+
+        // Factories =====================================
+
+        /* // Book factory
+        Book::factory()->count(1000)->create(); */
+
+        // Book author factory
+        Author::factory()->has(Book::factory()->count(2))->count(500)->create();
+
+        // User book factory
+        UserBook::factory()->count(200)->create();
+
     }
 }

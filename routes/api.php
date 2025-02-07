@@ -7,6 +7,7 @@ use App\Http\Controllers\BookFormatController;
 use App\Http\Controllers\BookLanguageController;
 use App\Http\Controllers\BookTypeController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\UserBookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,3 +32,4 @@ Route::apiResource('genres',GenreController::class);
 Route::apiResource('book-types',BookTypeController::class);
 Route::apiResource('book-formats',BookFormatController::class);
 Route::apiResource('book-languages',BookLanguageController::class);
+Route::apiResource('user-books',UserBookController::class);
