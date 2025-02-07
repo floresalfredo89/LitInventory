@@ -12,9 +12,12 @@ class UserBook extends Model
     protected $fillable = [
         'user_id',
         'book_id',
+        'readed',
         'acquired_at',
         'buy_price'
     ];
+
+    // Many to one
 
     public function user()
     {
@@ -24,5 +27,12 @@ class UserBook extends Model
     public function book()
     {
         return $this->belongsTo(Book::class);
+    }
+
+    // One to many relationships
+
+    public function notes()
+    {
+        return $this->hasMany(BookNote::class);
     }
 }

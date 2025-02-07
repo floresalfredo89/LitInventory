@@ -6,6 +6,7 @@ use App\Models\UserBook;
 use App\Http\Requests\StoreUserBookRequest;
 use App\Http\Requests\UpdateUserBookRequest;
 use App\Http\Resources\UserBookResource;
+use Illuminate\Support\Facades\Auth;
 
 class UserBookController extends Controller
 {
@@ -48,7 +49,6 @@ class UserBookController extends Controller
         // Update a user book
         $validated = $request->validated();
 
-        $userBook->user_id = $validated['user_id'];
         $userBook->book_id = $validated['book_id'];
         $userBook->acquired_at = $validated['acquired_at'];
         $userBook->buy_price = $validated['buy_price'];

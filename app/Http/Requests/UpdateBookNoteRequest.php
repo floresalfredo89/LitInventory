@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateUserBookRequest extends FormRequest
+class UpdateBookNoteRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,18 +22,19 @@ class UpdateUserBookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'book_id' => 'required|numeric',
-            'acquired_at' => 'nullable|date',
-            'buy_price' => 'nullable|numeric|max:999999'
+            'summary' => 'required|max:250',
+            'page_number' => 'nullable|numeric',
+            'note' => 'nullable|max:65000'
         ];
     }
 
-    public function messages()
+    public function message()
     {
         return [
-            'book_id' => 'El id del libro es obligatorio y debe ser número',
-            'acquired_at' => 'La fecha de adquisición o compra, debe ser de tipo fecha (YYYY-MM-DD)',
-            'buy_price' => 'El precio de compra debe ser solo números'
+            'summary.required' => 'Este campo es obligatorio',
+            'summary.max' => 'Este no puede tener mas de 255 caracteres',
+            'page_number' => 'La página del libro debe ser de tipo número',
+            'note' => 'El tamaño máximo del texto que se puede mandar en este campo es de 65,000'
         ];
     }
 }

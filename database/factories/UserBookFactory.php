@@ -19,6 +19,7 @@ class UserBookFactory extends Factory
         return [
             'user_id' => 1,
             'book_id' => fake()->numberBetween(1,999),
+            'readed' => fake()->boolean(0.5),
             'acquired_at' => fake()->date(),
             'buy_price' => fake()->randomFloat(2, 300, 800)
         ];

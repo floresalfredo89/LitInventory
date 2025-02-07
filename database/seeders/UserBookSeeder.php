@@ -17,6 +17,7 @@ class UserBookSeeder extends Seeder
         DB::table('user_books')->insert([
             'user_id' => 1,
             'book_id' => 1,
+            'readed' => true,
             'acquired_at' => '2025-01-20',
             'buy_price' => 350.50
         ]);
@@ -24,6 +25,7 @@ class UserBookSeeder extends Seeder
         DB::table('user_books')->insert([
             'user_id' => 1,
             'book_id' => 3,
+            'readed' => false,
             'acquired_at' => '2025-01-20',
             'buy_price' => 219.99
         ]);

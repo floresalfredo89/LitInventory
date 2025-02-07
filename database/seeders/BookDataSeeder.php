@@ -173,6 +173,9 @@ class BookDataSeeder extends Seeder
             'genre_id' => 3
         ]);
 
+
+
+
         // Factories =====================================
 
         /* // Book factory
@@ -183,6 +186,27 @@ class BookDataSeeder extends Seeder
 
         // User book factory
         UserBook::factory()->count(200)->create();
+
+
+
+        // Book notes
+
+        DB::table('book_notes')->insert([
+            'user_book_id' => 1,
+            'user_id' => 1,
+            'summary' => 'Parte de interes 1',
+            'page_number' => 50,
+            'note' => 'Esta parte me parecio muy interesante'
+        ]);
+
+        DB::table('book_notes')->insert([
+            'user_book_id' => 1,
+            'user_id' => 1,
+            'summary' => 'Sobre misterioso personaje',
+            'page_number' => 62,
+            'note' => 'El misterioso personaje que tiene la espada azul en realidad es un aliado del pasado'
+        ]);
+
 
     }
 }
